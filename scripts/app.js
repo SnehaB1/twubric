@@ -18,6 +18,22 @@ var App = angular.module('myApp', [])
             $scope.deleteItem = function (index) {
                 $scope.xList.splice(index, 1);
             }
+
+            Mousetrap.bind('u', function() {
+                    $('#unsort-button').click();
+                });
+            Mousetrap.bind('t', function() {
+                    $('#total-sort-button').click();
+                });
+                Mousetrap.bind('f', function() {
+                    $('#friends-sort-button').click();
+                });
+                Mousetrap.bind('i', function() {
+                    $('#influence-sort-button').click();
+                });
+                Mousetrap.bind('c', function() {
+                    $('#chirpiness-sort-button').click();
+                });
     })
     
 
