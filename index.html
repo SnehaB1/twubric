@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<title>Twubric App</title>
+		<meta name="description" content=""/>
+		<meta name="viewport" content="width=device-width"/>		
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">  		
+  		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">  		
+		<link rel="stylesheet" href="assets/CSS/style.css">		
+        <link rel="stylesheet" href="assets/css/jquery-ui.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	<body ng-app="myApp" ng-controller="twubricController">
+
+		<!--[if lt IE 7]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+         <![endif]-->
+
+          <!--[if lt IE 9]>
+              <script src="scripts/vendor/es5-shim.min.js"></script>
+              <script src="scripts/vendor/json3.min.js"></script>
+          <![endif]-->
+		<header>
+            <div class="header__bg"></div>
+            <h1>Twubric</h1>
+        </header>
+        <div class="container">
+        <button type="button" class="btn btn-default" ng-click="propertyName = null; reverse = false">Set to unsorted</button>
+        <button type="button" class="btn btn-default" ng-click="sortBy('twubric.total')">Total</button>
+         <span class="sortorder" ng-show="propertyName === 'twubric.total'" ng-class="{reverse: reverse}"></span>
+        <button type="button" class="btn btn-default" ng-click="sortBy('twubric.friends')">Friends</button>
+         <span class="sortorder" ng-show="propertyName === 'twubric.friends'" ng-class="{reverse: reverse}"></span>
+        <button type="button" class="btn btn-default" ng-click="sortBy('twubric.influence')">Influence</button>
+         <span class="sortorder" ng-show="propertyName === 'twubric.influence'" ng-class="{reverse: reverse}"></span>
+        <button type="button" class="btn btn-default" ng-click="sortBy('twubric.chirpiness')">Chirpiness</button>
+         <span class="sortorder" ng-show="propertyName === 'twubric.chirpiness'" ng-class="{reverse: reverse}"></span>
+
+         
+        
+  
+        
+            <div class="row" style="margin-top:3%;">
+                <div ng-repeat="x in xList | orderBy:propertyName:reverse">
+                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                    <div class="col-md-4">
+                        <div class="content">
+                            <div class="card">
+                                <div class="firstinfo">
+                                    <div class="profileinfo">
+                                        <h1>{{x.fullname}}</h1>
+                                        <h3> Total - {{x.twubric.total}}</h3>
+                                        <p class="bio">{{x.join_date * 1000 | date:'MMM dd,yyyy'}} <a href="" ng-click="deleteItem($index)">REMOVE</a> </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="badgescard"> 
+                                <span class="">FRIENDS- {{x.twubric.friends}} </span>
+                                <span class="">INFLUENCE- {{x.twubric.influence}} </span>
+                                <span class="">CHIRPINESS- {{x.twubric.chirpiness}} </span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script type="text/javascript" src="assets/js/mousetrap.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
+        <script type="text/javascript" src="scripts/app.js"></script>
+
+	</body>
+</html>
