@@ -19,4 +19,6 @@ Running the application Download or clone the repository and create a SimpleHTTP
 - Enabled keyboard short-cuts to sort followers.
 - Created a card layout for each user instead of a boring grid.
 - Used ng-cloak to prevent pre-compiled Angular expressions from displaying.
+
+![twubric](https://user-images.githubusercontent.com/13716214/43688945-0acca0e0-9910-11e8-8581-6a95142198a9.png)
  
