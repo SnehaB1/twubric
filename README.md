@@ -15,6 +15,7 @@ Running the application Download or clone the repository and create a SimpleHTTP
 
 #### Bonus
 
+- Integrated Isotope with app.
 - Enabled keyboard short-cuts to sort followers.
 - Created a card layout for each user instead of a boring grid.
 - Used ng-cloak to prevent pre-compiled Angular expressions from displaying.
