@@ -13,6 +13,7 @@
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">  		
   		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">  		
 		<link rel="stylesheet" href="assets/CSS/style.css">		
+        <link rel="stylesheet" href="assets/CSS/style-2.css"> 
         <link rel="stylesheet" href="assets/css/jquery-ui.css">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         
@@ -32,21 +33,19 @@
             <h1>Twubric</h1>
         </header>
         <div class="container">
-        <button type="button" class="btn btn-default" id="unsort-button" ng-click="propertyName = null; reverse = false">Set to unsorted</button>
-        <button type="button" class="btn btn-default" id="total-sort-button" ng-click="sortBy('twubric.total')">Total</button>
-         <span class="sortorder" ng-show="propertyName === 'twubric.total'" ng-class="{reverse: reverse}"></span>
-        <button type="button" class="btn btn-default" id="friends-sort-button" ng-click="sortBy('twubric.friends')">Friends</button>
-         <span class="sortorder" ng-show="propertyName === 'twubric.friends'" ng-class="{reverse: reverse}"></span>
-        <button type="button" class="btn btn-default" id="influence-sort-button" ng-click="sortBy('twubric.influence')">Influence</button>
-         <span class="sortorder" ng-show="propertyName === 'twubric.influence'" ng-class="{reverse: reverse}"></span>
-        <button type="button" class="btn btn-default" id="chirpiness-sort-button" ng-click="sortBy('twubric.chirpiness')">Chirpiness</button>
-         <span class="sortorder" ng-show="propertyName === 'twubric.chirpiness'" ng-class="{reverse: reverse}"></span>
+            <div class="btn-group"  opt-kind ok-key="sortBy">
+                <button type="button" class="btn btn-default" id="unsort-button" ok-sel="[numberuid]" ok-type="integer">Set to unsorted</button>
+                <button type="button" class="btn btn-default" id="total-sort-button" ok-sel="[numberTotal]" ok-type="integer">Total</button>      
+                <button type="button" class="btn btn-default" id="friends-sort-button"  ok-sel="[numberFriends]" ok-type="integer">Friends</button>         
+                <button type="button" class="btn btn-default" id="influence-sort-button" ok-sel="[numberInfluence]" ok-type="integer">Influence</button>                 
+                <button type="button" class="btn btn-default" id="chirpiness-sort-button" ok-sel="[numberChirpiness]" ok-type="integer">Chirpiness</button>
+                 
 
-         
+            </div>
         
   
         
-            <div class="row" style="margin-top:3%;">
+            <div class="row" style="margin-top:3%;" id="isotopeContainer" isotope-container ng-cloak class="ng-cloak">
                 <div ng-repeat="x in xList | orderBy:propertyName:reverse">
                     <div class="clearfix" ng-if="$index % 3 == 0"></div>
                     <div class="col-md-4">
@@ -54,17 +53,17 @@
                             <div class="card">
                                 <div class="firstinfo">
                                     <div class="profileinfo">
-                                        <h1>{{x.fullname}}</h1>
-                                        <h3> Total - {{x.twubric.total}}</h3>
+                                        <h1 numberuid="{{x.uid}}">{{x.fullname}}</h1>
+                                        <h3 numberTotal="{{x.twubric.total}}"> Total - {{x.twubric.total}}</h3>
                                         <p class="bio">{{x.join_date * 1000 | date:'MMM dd,yyyy'}} <a href="" ng-click="deleteItem($index)">REMOVE</a> </p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="badgescard"> 
-                                <span class="">FRIENDS- {{x.twubric.friends}} </span>
-                                <span class="">INFLUENCE- {{x.twubric.influence}} </span>
-                                <span class="">CHIRPINESS- {{x.twubric.chirpiness}} </span>
+                                <span class="" numberFriends="{{x.twubric.friends}}">FRIENDS- {{x.twubric.friends}} </span>
+                                <span class="" numberInfluence="{{x.twubric.influence}}">INFLUENCE- {{x.twubric.influence}} </span>
+                                <span class="" numberChirpiness="{{x.twubric.chirpiness}}">CHIRPINESS- {{x.twubric.chirpiness}} </span>
                                 
                             </div>
                         </div>
@@ -75,9 +74,11 @@
     
         <script type="text/javascript" src="assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
-        
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+        <script src="scripts/jquery.isotope.js"></script>
+        <script src="scripts/angular-isotope.js"></script>        
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        
         <script type="text/javascript" src="assets/js/mousetrap.min.js"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
         <script type="text/javascript" src="scripts/app.js"></script>
