@@ -136,7 +136,7 @@ a:hover code {
 a:active,
 a:active code {
   color: #1FB;
-  background: black;
+  
 }
 
 a img { border: none; }
